@@ -1,5 +1,6 @@
 precision mediump float;
 
 void main(){
-  gl_FragColor = vec4(0.608,0.962,1.000,1.000);
+  // 出力する色を決定
+  gl_FragColor=vec4(.608,.962,1.,1.);
 }
