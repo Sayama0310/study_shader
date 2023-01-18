@@ -8,6 +8,6 @@ void main(){
   vec2 position=(gl_FragCoord.xy*2.-u_resolution.xy)/min(u_resolution.x,u_resolution.y);
   
   // sin, cos, abs なども使える
-  vec3 rattice = vec3(0.05 / abs(cos(position.x * 20.0)*sin(position.y * 20.0)));
-  gl_FragColor=vec4(abs(rattice),1.);
+  vec3 lattice=vec3(.05/abs(cos(position.x*20.)*sin(position.y*20.)));
+  gl_FragColor=vec4(.1+abs(lattice),1.);
 }
