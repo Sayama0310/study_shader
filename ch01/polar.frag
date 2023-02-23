@@ -33,7 +33,7 @@ vec3 tex(vec2 pol){
         vec3(.5294,.2667,.2667),
         vec3(.349,.4784,.6314)
     );
-pol.s=pol.s/PI+1.;// 偏角の範囲を [0,2) に変換
+    pol.s=pol.s/PI+1.;// 偏角の範囲を [0,2) に変換
     int ind=int(pol.s);// 画面下は ind=0 , 画面上は ind=1
     vec3 col=mix(col3[ind%2],col3[(ind+1)%2],fract(pol.s));
     return mix(col3[2],col,pol.t);
