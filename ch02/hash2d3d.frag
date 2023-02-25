@@ -51,14 +51,18 @@ void main()
     channel = ivec2(gl_FragCoord.xy * 2.0 / u_resolution.xy);
     if (channel[0] == 0){ //left
         if (channel[1] == 0){ // low
+            // poositionはxyが線形に増加していくので、ノイズが左下に流れていく
             fragColor.rgb = vec3(hash21(position));
         } else { // high
+            // blueは1で固定して、red, greenにノイズをかける
             fragColor.rgb = vec3(hash22(position), 1.0);
         }
     } else {    //right
         if (channel[1] == 0){ // low
+            // 位置と時間からハッシュを計算して、vec3に展開するので、モノクロノイズになる
             fragColor.rgb = vec3(hash31(vec3(position, time)));
         } else { // high
+            // vec3へ展開はしないのでカラーノイズになる
             fragColor.rgb = hash33(vec3(position, time));
         }
     }
